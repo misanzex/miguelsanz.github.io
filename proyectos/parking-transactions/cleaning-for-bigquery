@@ -1,0 +1,23 @@
+# I want to use the .csv file (downloaded from Kaggle) in BigQuery but it seems I need to clean it before.
+# Before coming back again here for ML predicitions, I'm going to clean the file to be able to work at BigQuery.
+
+# Step 1: Load and clean the dataset from Kaggle with Pandas
+import pandas as pd
+df = pd.read_csv("/Parking_Transactions.csv", low_memory=False)
+
+# Rename columns (delete space and uncompatible characters)
+df.columns = [col.strip().replace(" ", "").replace("-", "").replace("/", "") for col in df.columns]
+
+# Checking date columns format
+print(df[['StartTime', 'EndTime', 'LastUpdated']].head())
+
+# Step 2: Transform date columns into ISO format
+df['StartTime'] = pd.to_datetime(df['StartTime'], format='%m/%d/%Y %I:%M:%S %p', errors='coerce')
+df['EndTime'] = pd.to_datetime(df['EndTime'], format='%m/%d/%Y %I:%M:%S %p', errors='coerce')
+df['LastUpdated'] = pd.to_datetime(df['LastUpdated'], format='%m/%d/%Y %I:%M:%S %p', errors='coerce')
+
+# Step 2.3: cheking the ISO format
+print(df[['StartTime', 'EndTime', 'LastUpdated']].head())
+
+# Step 3: Get the clean .csv
+df.to_csv("parking_ready.csv", index=False)
