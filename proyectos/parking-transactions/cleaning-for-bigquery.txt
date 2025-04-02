@@ -1,23 +1,17 @@
-# I want to use the .csv file (downloaded from Kaggle) in BigQuery but it seems I need to clean it before.
-# Before coming back again here for ML predicitions, I'm going to clean the file to be able to work at BigQuery.
+# I want to use the .csv file in BigQuery but it seems we need to clean it before, it was better in Kaggle's notebook in order to get the right file (when you download the csv it isn't the last version)
+# Here I just want to compare the shape and the cleaning from one to another  
+#Load the dataset downloaded from Kaggle with Pandas
 
-# Step 1: Load and clean the dataset from Kaggle with Pandas
 import pandas as pd
-df = pd.read_csv("/Parking_Transactions.csv", low_memory=False)
+df = pd.read_csv("/content/parking_clean_kaggle.csv", low_memory=False)
 
-# Rename columns (delete space and uncompatible characters)
-df.columns = [col.strip().replace(" ", "").replace("-", "").replace("/", "") for col in df.columns]
+df.shape
+#(15044794, 12)
 
-# Checking date columns format
-print(df[['StartTime', 'EndTime', 'LastUpdated']].head())
+# Kaggle's shape ----> matches
+print((15044794, 12))
 
-# Step 2: Transform date columns into ISO format
-df['StartTime'] = pd.to_datetime(df['StartTime'], format='%m/%d/%Y %I:%M:%S %p', errors='coerce')
-df['EndTime'] = pd.to_datetime(df['EndTime'], format='%m/%d/%Y %I:%M:%S %p', errors='coerce')
-df['LastUpdated'] = pd.to_datetime(df['LastUpdated'], format='%m/%d/%Y %I:%M:%S %p', errors='coerce')
+df.head()
 
-# Step 2.3: cheking the ISO format
-print(df[['StartTime', 'EndTime', 'LastUpdated']].head())
+df.to_csv("/content/parking_dateclean_kaggle.csv")
 
-# Step 3: Get the clean .csv
-df.to_csv("parking_ready.csv", index=False)
