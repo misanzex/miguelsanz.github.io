@@ -21,7 +21,7 @@ It is part of my Data Analytics portfolio and aims to demonstrate my ability to 
 ## 🗂️ Dataset
 
 - **Source**: [Austin Open Data Portal](https://data.austintexas.gov/Transportation-and-Mobility/Parking-Transactions/5bb2-gtef)
-- **Size**: ~2M records (depending on update)
+- **Size**: ~15M records (depending on update)
 - **Fields** (examples):
   - `Transaction DateTime`
   - `Area`, `Zone`
