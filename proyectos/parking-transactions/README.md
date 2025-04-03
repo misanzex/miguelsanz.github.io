@@ -90,7 +90,7 @@ It is part of my Data Analytics portfolio and aims to demonstrate my ability to 
 ## ✍️ Author
 
 Miguel Sanz – Data Analyst | Spanish Teacher | Sustainability Enthusiast  
-[Portfolio Website](https://miguelsanz.net) | [LinkedIn](https://www.linkedin.com/in/misanzex) *(add yours)*
+[Portfolio Website](https://miguelsanz.net) | [LinkedIn](https://www.linkedin.com/in/misanzex)
 
 ---
 
