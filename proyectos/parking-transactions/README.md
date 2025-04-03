@@ -2,7 +2,7 @@
 
 ## 📌 Overview
 
-This project explores and analyzes parking transaction data from the city of Austin, Texas (https://data.austintexas.gov/Transportation-and-Mobility/Parking-Transactions/5bb2-gtef/about_data). It combines data cleaning, SQL exploration (BigQuery), data visualization (Power BI / Looker), and machine learning modeling in Python to predict parking duration based on temporal and spatial patterns.
+This project explores and analyzes parking transaction data from the [city of Austin, Texas](https://data.austintexas.gov/Transportation-and-Mobility/Parking-Transactions/5bb2-gtef/about_data). It combines data cleaning, SQL exploration (BigQuery), data visualization (Power BI / Looker), and machine learning modeling in Python to predict parking duration based on temporal and spatial patterns.
 
 It is part of my Data Analytics portfolio and aims to demonstrate my ability to work across the full data workflow — from raw data to actionable insights and predictive models.
 
@@ -35,7 +35,7 @@ It is part of my Data Analytics portfolio and aims to demonstrate my ability to 
 
 - **BigQuery (SQL)** – Data exploration and cleaning
 - **Python** – Modeling (Pandas, Scikit-learn, XGBoost)
-- **Power BI / Looker Studio** – Visual dashboards
+- **Looker Studio** – Visual dashboards
 - **GitHub** – Project documentation
 - **Markdown** – This README
 
@@ -90,7 +90,7 @@ It is part of my Data Analytics portfolio and aims to demonstrate my ability to 
 ## ✍️ Author
 
 Miguel Sanz – Data Analyst | Spanish Teacher | Sustainability Enthusiast  
-[Portfolio Website](https://miguelsanz.net) | [LinkedIn](https://www.linkedin.com/) *(add yours)*
+[Portfolio Website](https://miguelsanz.net) | [LinkedIn](https://www.linkedin.com/in/misanzex) *(add yours)*
 
 ---
 
