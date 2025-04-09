@@ -1,17 +1,19 @@
-# I want to use the .csv file in BigQuery but it seems we need to clean it before, it was better in Kaggle's notebook in order to get the right file (when you download the csv it isn't the last version)
-# Here I just want to compare the shape and the cleaning from one to another  
-#Load the dataset downloaded from Kaggle with Pandas
-
+# Load the dataset downloaded from Kaggle with Pandas 
 import pandas as pd
-df = pd.read_csv("/content/parking_clean_kaggle.csv", low_memory=False)
+df = pd.read_csv("/kaggle/input/parking-transactions/Parking_Transactions.csv", low_memory=False)
 
-df.shape
-#(15044794, 12)
+#BigQuery returns to errors once we try to upload into a table with an authoschema: datetime format isn't correct, and column's names are problematic
 
-# Kaggle's shape ----> matches
-print((15044794, 12))
+# 1. Rename columns
+df.columns = [col.strip().replace(" ", "").replace("-", "").replace("/", "") for col in df.columns]
 
-df.head()
+# 2. Transform data colums keeping not deleting anything 
+df['StartTime'] = pd.to_datetime(df['StartTime'], format='%m/%d/%Y %I:%M:%S %p', errors='coerce')
+df['EndTime'] = pd.to_datetime(df['EndTime'], format='%m/%d/%Y %I:%M:%S %p', errors='coerce')
+df['LastUpdated'] = pd.to_datetime(df['LastUpdated'], format='%m/%d/%Y %I:%M:%S %p', errors='coerce')
+print(df.shape)
 
+
+# Export the cleaned dataset to a CSV file
 df.to_csv("/content/parking_dateclean_kaggle.csv")
 
